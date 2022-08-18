@@ -13,8 +13,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
-        <h1 BẢNG CHẤM CÔNG ></h1>
+    <body>   
+        <h1>BẢNG CHẤM CÔNG</h1>
         <table border="5px">
             <tr>
                 <td></td>
