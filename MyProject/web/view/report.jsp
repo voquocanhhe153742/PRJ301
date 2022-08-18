@@ -14,7 +14,12 @@
         <title>JSP Page</title>
     </head>
     <body>   
-        <h1>BẢNG CHẤM CÔNG</h1>
+        <H1 style="color: darkblue">BẢNG CHẤM CÔNG</H1>
+        <h2 style="color: darkslateblue">
+            <% 
+                    out.println("Nhà Máy Vật Liệu Xây Dựng");
+               %>
+        </h2>
         <table border="5px">
             <tr>
                 <td></td>
@@ -57,9 +62,9 @@
                     </c:forEach>
                     <td>${e.getWorkingHours()}</td>
                     <td>${e.getWorkingDays()}</td>
-                    <td>2</td>
-                    <td>5</td>
-                    <td>2000$</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
             </c:forEach>
         </table>
