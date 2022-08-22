@@ -70,7 +70,22 @@ public class TimesheetReportController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+         response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
+        Date today = new Date();
+        today = DateTimeHelper.removeTime(today);
+        int dayOfMonth = DateTimeHelper.getDayOfMonth(today);
+        Date begin = DateTimeHelper.addDays(today, (dayOfMonth - 1) * -1);
+        Date end = DateTimeHelper.addDays(DateTimeHelper.addMonths(begin, 1), -1);
+        EmployeeDBContext db = new EmployeeDBContext();
+        String name = request.getParameter("name");
+        ArrayList<Employee> emps = db.getSearchEmps(begin, end,name);
+        ArrayList<ViewDate> dates = DateTimeHelper.getDates(begin, end);
+        request.setAttribute("name", name);
+        request.setAttribute("emps", emps);
+        request.setAttribute("dates", dates);
+        request.getRequestDispatcher("view/report.jsp").forward(request, response);
     }
 
     /** 

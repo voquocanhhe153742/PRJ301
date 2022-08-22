@@ -4,6 +4,7 @@
  */
 package model;
 
+import dal.EmployeeDBContext;
 import java.util.ArrayList;
 
 /**
@@ -11,9 +12,14 @@ import java.util.ArrayList;
  * @author admin
  */
 public class Employee {
+
+    EmployeeDBContext e = new EmployeeDBContext();
     private int id;
     private String name;
     private float salary;
+    private int paidleave;
+    private int unpaidleave;
+    private int holiday;
     private ArrayList<TimeSheet> timesheets = new ArrayList<>();
 
     public float getSalary() {
@@ -23,21 +29,19 @@ public class Employee {
     public void setSalary(float salary) {
         this.salary = salary;
     }
-    
-    public float getWorkingHours()
-    {
+
+    public float getWorkingHours() {
         float sum = 0;
         for (TimeSheet timesheet : timesheets) {
             sum += timesheet.getWorkingHours();
         }
         return sum;
     }
-    
-    public int getWorkingDays()
-    {
+
+    public int getWorkingDays() {
         return timesheets.size();
     }
-    
+
     public int getId() {
         return id;
     }
@@ -61,6 +65,29 @@ public class Employee {
     public void setTimesheets(ArrayList<TimeSheet> timesheets) {
         this.timesheets = timesheets;
     }
-    
-    
+
+    public int getPaidleave() {
+        return paidleave;
+    }
+
+    public void setPaidleave(int paidleave) {
+        this.paidleave = paidleave;
+    }
+
+    public int getUnpaidleave() {
+        return unpaidleave;
+    }
+
+    public void setUnpaidleave(int unpaidleave) {
+        this.unpaidleave = unpaidleave;
+    }
+
+    public int getHoliday() {
+        return holiday;
+    }
+
+    public void setHoliday(int holiday) {
+        this.holiday = holiday;
+    }
+
 }
