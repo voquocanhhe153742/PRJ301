@@ -14,12 +14,6 @@
         <title>JSP Page</title>
     </head>
     <body>   
-        <H1 style="color: darkblue">BẢNG CHẤM CÔNG</H1>
-        <h2 style="color: darkslateblue">
-            <% 
-                    out.println("Nhà Máy Vật Liệu Xây Dựng");
-               %>
-        </h2>
         <table border="5px">
             <tr>
                 <td></td>
