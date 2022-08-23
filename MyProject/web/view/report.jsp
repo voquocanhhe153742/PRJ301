@@ -13,6 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
+    <h1 style="text-align: center">Bảng chấm công</h1>
     <body>
         <form style="margin-bottom: 30px" action="report" method="post">
             <input type="text" name="name" value="${name}" placeholder="Search by name">
@@ -20,7 +21,7 @@
         </form>
         <table border="5px">
             <tr>
-                <td></td>
+                <td>Name</td>
                 <c:forEach items="${requestScope.dates}" var="d" >
                     <td 
                         <c:if test="${d.dow eq 1 or d.dow eq 7}">
@@ -29,9 +30,9 @@
                         <c:if test="${d.dow ne 1 and d.dow ne 7}">
                             style="background-color: bisque" 
                         </c:if>
-                        >0
+                        >
                         <fmt:formatDate pattern = "dd" 
-                                        value = "${d.value}" /> <br/>
+                                        value = "${d.value}" /> /08<br/>
                         <fmt:formatDate pattern = "EE"
                                         value = "${d.value}" />
                     </td>
